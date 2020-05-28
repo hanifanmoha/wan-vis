@@ -1,0 +1,26 @@
+.root {
+  min-height: 240px;
+  background: rgba(240,240,240,0.8);
+  padding: 40px 80px;
+  display: flex;
+}
+
+.logoContainer {
+  width: 300px;
+  margin-right: 52px;
+}
+
+.logo {
+  width: 300px;
+}
+
+.infoContainer {
+  padding-top: 16px;
+  flex: 1;
+
+  p {
+    margin-bottom: 8px;
+  }
+
+}
+

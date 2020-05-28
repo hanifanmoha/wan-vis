@@ -1,0 +1,15 @@
+.root {
+  height: 80px;
+  backdrop-filter: saturate(180%) blur(20px);
+  background: rgba(240,240,240,0.8);
+  position: sticky;
+  top: 0;
+
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.mainLogo {
+  height: 40px;
+}

@@ -1,0 +1,26 @@
+.root {
+  min-height: 32px;
+  display: flex;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.column {
+  padding: 12px 20px;
+  flex: 1;
+  text-align: center;
+}
+
+.tableHeader {
+  cursor: pointer;
+}
+
+.columnTitle {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.iconButton {
+  width: 16px;
+}
