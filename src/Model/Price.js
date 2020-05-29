@@ -1,6 +1,6 @@
 class Price {
 
-  static rowLimit = 100
+  static rowLimit = 40
   static headers = ['Name', 'Province', 'City', 'Size', 'Price']
 
   constructor(json) {

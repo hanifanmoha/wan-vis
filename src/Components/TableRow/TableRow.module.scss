@@ -1,12 +1,13 @@
 .root {
   display: flex;
+  align-items: stretch;
+
   min-height: 52px;
   padding: 16px 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-
-  &:nth-child(even) {
-    background-color: rgba(0, 0, 0, 0.05);
-  }
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+  margin-bottom: 8px;
+  cursor: pointer;
 
   &:hover {
     background-color: rgba(0, 0, 0, 0.1);
@@ -16,5 +17,8 @@
 .column {
   flex: 1;
   padding: 0 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
 }

@@ -8,7 +8,7 @@ const TableRow = ({ className, rowData = [] }) => {
       {rowData.map((value, index) => <div
         key={`${index}--${value}`}
         className={styles.column}>
-        {value}
+        <span>{value}</span>
       </div>)}
     </div>
   )
