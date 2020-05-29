@@ -30,13 +30,9 @@ const TableHeaders = ({ className, headers=[], handleSort }) => {
   const thHandleSort = (newActiveSort) => () => {
     let newSortType = 0
     if (activeSort !== newActiveSort) {
-      newSortType = 1
-    } else if (sortType === 0) {
-      newSortType = 1
-    } else if (sortType === 1) {
       newSortType = -1
     } else {
-      newSortType = 0
+      newSortType = -sortType
     }
     setActiveSort(newActiveSort)
     setSortType(newSortType)

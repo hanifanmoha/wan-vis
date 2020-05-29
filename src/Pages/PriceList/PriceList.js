@@ -1,46 +1,65 @@
 import styles from './PriceList.module.scss'
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import cx from 'classnames'
+import { connect } from 'react-redux'
 
 import PageContainer from '../../Components/PageContainer/PageContainer'
-import TableHeaders from '../../Components/TableHeaders/TableHeaders'
-import TableRow from '../../Components/TableRow/TableRow'
+import { fetchPrice } from '../../Redux/PriceAction'
 
-const PriceList = ({ className }) => {
+import Price from '../../Model/Price'
+import DataTable from '../../Components/DataTable/DataTable'
 
-  let headers = ['Name', 'Size', 'Province', 'City', 'Price']
-  let [list, setList] = useState([])
+const PriceList = ({ className, priceStore, fetchPrice, dispatch }) => {
 
   useEffect(() => {
-    fetchData()
+    handleFetch()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  async function fetchData() {
-    let response = await fetch('https://stein.efishery.com/v1/storages/5e1edf521073e315924ceab4/list')
-    let json = await response.json()
-    setList(json.filter(({ uuid, ...rest }) => uuid !== null))
+  function handleSort(activeSort, sortType) {
+    dispatch({
+      type: 'PRICE_SORT',
+      payload: { activeSort, sortType }
+    })
   }
 
-  function handleSort(activeSort, sortType) {
-    console.log(activeSort, sortType)
+  function handleFetch() {
+    fetchPrice({
+      limit: Price.rowLimit,
+      offset: priceStore.offset
+    })
   }
 
   return (
     <PageContainer
       className={cx(className, styles.root)}
       title={'Price List'}>
-      <TableHeaders
-        headers={headers}
-        handleSort={handleSort} />
-      {list.map((row, index) => {
-        let { uuid, komoditas, area_provinsi,
-          area_kota, size, price } = row
-        return <TableRow
-          key={`${index}--${uuid}`}
-          data={[komoditas, size, area_provinsi, area_kota, price]} />
-      })}
+      <DataTable
+        headers={Price.headers}
+        data={priceStore.list.map(price => price.rowData())}
+
+        loading={priceStore.loading}
+        isLoadMore={priceStore.isLoadMore}
+
+        handleSort={handleSort}
+        loadMore={handleFetch}
+      />
     </PageContainer>
   );
 }
 
-export default PriceList
+const mapStateToProps = ({priceStore}) => {
+  return { priceStore }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchPrice: params => dispatch(fetchPrice(params)),
+    dispatch
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(PriceList)
