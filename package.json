@@ -6,6 +6,7 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "axios": "^0.19.2",
     "classnames": "^2.2.6",
     "json-reactform": "^0.1.13",
     "moment": "^2.26.0",
@@ -14,6 +15,7 @@
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
     "redux": "^4.0.5",
+    "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
     "stein-js-client": "^0.0.2"
   },
