@@ -1,5 +1,5 @@
 
-![enter image description here](https://flamboyant-hypatia-dd49e9.netlify.app/static/media/one-fish.8de54567.png)
+![enter image description here](docs/one-fish.png)
 # ONE FISH
 One Fish is an online platform to review fish stock market data since October 20, 1999. You can check the official release every Monday.
 
