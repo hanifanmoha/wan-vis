@@ -1,0 +1,25 @@
+.root {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+  margin-bottom: 16px;
+  padding: 24px ;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+}
+
+.row {
+  display: flex;
+  margin-bottom: 8px;
+}
+
+.label {
+  width: 100px;
+}
+
+.value {
+  flex: 1;
+}
