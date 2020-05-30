@@ -1,9 +1,8 @@
-import SteinStore from 'stein-js-client'
-
-let url = 'https://stein.efishery.com/v1/storages/5e1edf521073e315924ceab4'
-const store = new SteinStore(url)
+import steinStore from './Action'
 
 export const fetchPrice = params => ({
   type: 'PRICE_FETCH',
-  payload: store.read('list', params)
-});
+  payload: steinStore.read('list', params)
+})
+
+export const postPrice = body => steinStore.append('list', body)

@@ -3,13 +3,14 @@ import React, { useEffect } from 'react'
 import cx from 'classnames'
 import { connect } from 'react-redux'
 
-import PageContainer from '../../Components/PageContainer/PageContainer'
 import { fetchPrice } from '../../Redux/PriceAction'
-
 import Price from '../../Model/Price'
-import DataTable from '../../Components/DataTable/DataTable'
 
-const PriceList = ({ className, priceStore, fetchPrice, dispatch }) => {
+import PageContainer from '../../Components/PageContainer/PageContainer'
+import DataTable from '../../Components/DataTable/DataTable'
+import Button from '../../Components/Button/Button'
+
+const PriceList = ({ className, priceStore, fetchPrice, dispatch, history, location }) => {
 
   useEffect(() => {
     handleFetch()
@@ -30,10 +31,19 @@ const PriceList = ({ className, priceStore, fetchPrice, dispatch }) => {
     })
   }
 
+  function handleClickCreate() {
+    history.push('/create')
+  }
+
   return (
     <PageContainer
       className={cx(className, styles.root)}
       title={'Price List'}>
+      <Button
+        onClick={handleClickCreate}
+        className={styles.createButton}>
+        Add New Price
+      </Button>
       <DataTable
         headers={Price.headers}
         data={priceStore.list.map(price => price.rowData())}
