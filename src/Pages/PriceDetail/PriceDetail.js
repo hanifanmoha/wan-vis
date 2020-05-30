@@ -12,6 +12,7 @@ import PageContainer from '../../Components/PageContainer/PageContainer'
 import Input from '../../Components/Input/Input'
 import Button from '../../Components/Button/Button'
 import { postPrice } from '../../Redux/PriceAction'
+import Loading from '../../Components/Loading/Loading'
 
 const PriceDetail = ({ className, areaStore, fetchArea, sizeStore, fetchSize, dispatch, history, location }) => {
 
@@ -211,7 +212,8 @@ const PriceDetail = ({ className, areaStore, fetchArea, sizeStore, fetchSize, di
           <Button
             onClick={handleSubmit}
             className={styles.submitButton}>
-            {'Submit'}
+            {!isLoading && 'Submit'}
+            {isLoading && <Loading />}
           </Button>
         </div>
       </div>

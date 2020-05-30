@@ -5,17 +5,44 @@
   display: flex;
   align-items: flex-end;
   margin-bottom: 24px;
+
+  @media only screen and (max-width: 600px) {
+    flex-direction: column;
+  }
+  @media only screen and (min-width: 601px) {
+    flex-direction: row;
+  }
 }
 
 .label {
-  width: 300px;
   margin: 12px 0;
 
   .requiremark {
-    color: red
+    color: red;
+  }
+
+  @media only screen and (max-width: 600px) {
+    width: 100%;
+  }
+  @media only screen and (min-width: 601px) {
+    width: 300px;
   }
 }
 
 .field {
-  flex: 1
+  @media only screen and (max-width: 600px) {
+    width: 100%;
+  }
+  @media only screen and (min-width: 601px) {
+    flex: 1;
+  }
+}
+
+.submitButton {
+  height: 44px;
+  @media only screen and (max-width: 600px) {
+    width: 100%;
+  }
+  @media only screen and (min-width: 601px) {
+  }
 }

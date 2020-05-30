@@ -28,18 +28,20 @@ const DataTable = ({
 
   return (
     <div className={cx(className, styles.root)}>
-      <TableHeaders
-        headers={['No.', ...headers]}
-        handleSort={modifiedHandleSort} />
-      {data.map((row, index) => {
-        return <TableRow
-          key={index}
-          rowData={[index + 1, ...row]} />
-      })}
-      {isLoadMore && <div className={styles.loadMoreRow} onClick={loadMore}>
-        {!loading && <span>Load More</span>}
-        {loading && <img className={styles.loadingAnimation} src={Loading} alt='Loading' />}
-      </div>}
+      <div className={styles.container}>
+        <TableHeaders
+          headers={['No.', ...headers]}
+          handleSort={modifiedHandleSort} />
+        {data.map((row, index) => {
+          return <TableRow
+            key={index}
+            rowData={[index + 1, ...row]} />
+        })}
+        {isLoadMore && <div className={styles.loadMoreRow} onClick={loadMore}>
+          {!loading && <span>Load More</span>}
+          {loading && <img className={styles.loadingAnimation} src={Loading} alt='Loading' />}
+        </div>}
+      </div>
     </div>
   )
 }
